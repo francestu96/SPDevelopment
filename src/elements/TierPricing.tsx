@@ -14,211 +14,165 @@ import {
     Button,
     Link,
 } from '@chakra-ui/react'
+import { useState, useEffect } from 'react';
+import Countdown from 'react-countdown';
 import { FaCheckCircle, FaPlusCircle } from 'react-icons/fa'
 
-interface Props {
-    children: React.ReactNode
+interface PriceWrapperProps {
+    title: string;
+    fakePrice: string;
+    price: string;
+    maintanance: string;
+    isPopular?: boolean;
+    children: React.ReactNode;
 }
 
-function PriceWrapper(props: Props) {
-    const { children } = props
-
+function PriceWrapper({ title, fakePrice, price, maintanance, isPopular, children }: PriceWrapperProps) {
     return (
-        <Box
-            mb={4}
-            shadow="base"
-            borderWidth="1px"
-            alignSelf={{ base: 'center', lg: 'flex-start' }}
-            borderColor={useColorModeValue('gray.200', 'gray.500')}
-            borderRadius={'xl'}>
-            {children}
+        <Box position="relative" mb={4} shadow="base" borderWidth="1px" alignSelf={{ base: 'center', lg: 'flex-start' }} borderColor={useColorModeValue('gray.200', 'gray.500')} borderRadius={'xl'}>
+            {isPopular && (
+                <Box position="absolute" top="-16px" left="50%" style={{ transform: 'translate(-50%)' }}>
+                    <Text textTransform="uppercase" bg={useColorModeValue('red.300', 'red.700')} px={3} py={1} color={useColorModeValue('gray.900', 'gray.300')} fontSize="sm" fontWeight="600" rounded="xl">
+                        Most Popular
+                    </Text>
+                </Box>
+            )}
+            <Box py={4} px={12}>
+                <Text fontWeight="500" fontSize="2xl">
+                     {title}
+                </Text>
+                <HStack justifyContent="center">
+                    <Text fontSize={["lg", "xl", "2xl"]} mt="-2" textDecoration={'line-through'} color={'red.500'}>
+                        €{fakePrice}
+                    </Text>
+                    <Text fontSize={["xl", "2xl", "3xl"]} fontWeight="600">
+                        €
+                    </Text>
+                    <Text fontSize={["2xl", "3xl", "5xl"]} fontWeight="900">
+                        {price}*
+                    </Text>
+                    <Text fontSize={["xl", "2xl", "3xl"]} color="gray.500">
+                        +IVA
+                    </Text>
+                </HStack>
+                <Text fontSize="md" mt="-2" color="gray.500">
+                    Manutenzione € {maintanance}/anno
+                </Text>
+            </Box>
+            <VStack bg={useColorModeValue('gray.50', 'gray.700')} py={4} borderBottomRadius={'xl'}>
+                <List spacing={3} textAlign="start" px={12}>
+                    {children}
+                </List>
+                <Box w="80%" pt={7}>
+                    <Link href="https://api.whatsapp.com/send?phone=393667748241&text=Ciao Francesco, sarei interessato al *pacchetto Basic* della SPDevelopment" target="_blank">
+                        <Button w="full" colorScheme="red" variant={isPopular ? "solid" : "outline"}>
+                            Scrivici
+                        </Button>
+                    </Link>
+                </Box>
+            </VStack>
         </Box>
     )
 }
 
 export default function TierPricing() {
+    const [showCountdown, setShowCountdown] = useState(false);
+
+    const now = new Date();
+
+    const missingDays = 7 - now.getDay(); 
+    const daysToAdd = missingDays == 0 ? 7 : missingDays;
+    const targetDate = new Date(now.getFullYear(), now.getMonth(), now.getDate() + daysToAdd, 0, 0, 0, -1);
+
+    const renderer = ({ days, hours, minutes, seconds }: any) => {
+        return (
+            <HStack color="red.500">
+                <VStack gap="0">
+                    <Text fontWeight="bold" fontSize={["md", "lg", "xl"]}>{String(days).padStart(2, '0')}</Text>
+                    <Text fontSize={["xs", "sm"]} mt="-1">Giorni</Text>
+                </VStack>
+                <VStack gap="0">
+                    <Text fontWeight="bold" fontSize={["md", "lg", "xl"]}>{String(hours).padStart(2, '0')}</Text>
+                    <Text fontSize={["xs", "sm"]} mt="-1">Ore</Text>
+                </VStack>
+                <VStack gap="0">
+                    <Text fontWeight="bold" fontSize={["md", "lg", "xl"]}>{String(minutes).padStart(2, '0')}:{String(seconds).padStart(2, '0')}</Text>
+                    <Text fontSize={["xs", "sm"]} mt="-1">minutes</Text>
+                </VStack>
+            </HStack>
+        )
+    };
+
+    useEffect(() => {
+        setShowCountdown(true);
+    }, []);
+    
     return (
-        <Box py={12}  id='pricing'>
-            <VStack spacing={2} textAlign="center">
-                <Text fontSize="4xl" fontFamily="CustomFont" px="10" backgroundImage={'linear-gradient(to right, #9945FF, #14F195)'} backgroundClip="text" fill="transparent">
+        <Box pt="12"  id='pricing'>
+            <VStack spacing={2} textAlign="center" px="10" >
+                <Text fontSize="4xl" fontFamily="CustomFont" backgroundImage={'linear-gradient(to right, #9945FF, #14F195)'} backgroundClip="text" fill="transparent">
                     Pacchetti per ogni esigenza
                 </Text>
                 <Text fontSize="lg" color={'gray.500'}>
                     Ogni pacchetto può essere personalizzato in base alle specifiche esigenze
                 </Text>
             </VStack>
-            <Stack
-                direction={{ base: 'column', md: 'row' }}
-                textAlign="center"
-                justify="center"
-                spacing={{ base: 4, lg: 10 }}
-                py={10}
-                px={{ base: 10, md: 5, lg: 2 }}>
-                <PriceWrapper>
-                    <Box py={4} px={12}>
-                        <Text fontWeight="500" fontSize="2xl">
-                            Basic
-                        </Text>
-                        <HStack justifyContent="center">
-                            <Text fontSize="3xl" fontWeight="600">
-                                €
-                            </Text>
-                            <Text fontSize="5xl" fontWeight="900">
-                                1.799
-                            </Text>
-                            <Text fontSize="3xl" color="gray.500">
-                                + IVA
-                            </Text>
-                        </HStack>
-                        <Text fontSize="md" mt="-2" color="gray.500">
-                            Manutenzione € 500/anno
-                        </Text>
-                    </Box>
-                    <VStack
-                        bg={useColorModeValue('gray.50', 'gray.700')}
-                        py={4}
-                        borderBottomRadius={'xl'}>
-                        <List spacing={3} textAlign="start" px={12}>
-                            <ListItem>
-                                <ListIcon as={FaCheckCircle} color="green.500" />
-                                Gestione <b>centralizzata</b> degli immobili<br/>sui principali aggregatori (immobiliare.it, idealista.it ...)  
-                            </ListItem>
-                            <ListItem>
-                                <ListIcon as={FaCheckCircle} color="green.500" />
-                                Design <b>logo</b> e personalizzazione
-                            </ListItem>
-                            <ListItem>
-                                <ListIcon as={FaCheckCircle} color="green.500" />
-                                Compatibilità per dispositivi <b>mobile</b>
-                            </ListItem>
-                        </List>
-                        <Box w="80%" pt={7}>
-                            <Link href="https://api.whatsapp.com/send?phone=393667748241&text=Ciao Francesco, sarei interessato al *pacchetto Basic* della SPDevelopment" target="_blank">
-                                <Button w="full" colorScheme="red" variant="outline">
-                                    Scrivici
-                                </Button>
-                            </Link>
-                        </Box>
-                    </VStack>
+            <Stack direction={{ base: 'column', md: 'row' }} textAlign="center" justify="center" spacing={{ base: 4, lg: 10 }} py={[5, 7, 10]} px={{ base: 10, md: 5, lg: 2 }}>
+                <PriceWrapper title="Basic" fakePrice="3.499" price="1.799" maintanance="500">
+                    <ListItem>
+                        <ListIcon as={FaCheckCircle} color="green.500" />
+                        Gestione <b>centralizzata</b> degli immobili<br/>sui principali aggregatori (immobiliare.it, idealista.it ...)  
+                    </ListItem>
+                    <ListItem>
+                        <ListIcon as={FaCheckCircle} color="green.500" />
+                        Design <b>logo</b> e personalizzazione
+                    </ListItem>
+                    <ListItem>
+                        <ListIcon as={FaCheckCircle} color="green.500" />
+                        Compatibilità per dispositivi <b>mobile</b>
+                    </ListItem>
                 </PriceWrapper>
 
-                <PriceWrapper>
-                    <Box position="relative">
-                        <Box
-                            position="absolute"
-                            top="-16px"
-                            left="50%"
-                            style={{ transform: 'translate(-50%)' }}>
-                            <Text
-                                textTransform="uppercase"
-                                bg={useColorModeValue('red.300', 'red.700')}
-                                px={3}
-                                py={1}
-                                color={useColorModeValue('gray.900', 'gray.300')}
-                                fontSize="sm"
-                                fontWeight="600"
-                                rounded="xl">
-                                Most Popular
-                            </Text>
-                        </Box>
-                        <Box py={4} px={12}>
-                            <Text fontWeight="500" fontSize="2xl">
-                                Business
-                            </Text>
-                            <HStack justifyContent="center">
-                                <Text fontSize="3xl" fontWeight="600">
-                                    €
-                                </Text>
-                                <Text fontSize="5xl" fontWeight="900">
-                                    2.299
-                                </Text>
-                                <Text fontSize="3xl" color="gray.500">
-                                    + IVA
-                                </Text>
-                            </HStack>
-                            <Text fontSize="md" mt="-2" color="gray.500">
-                                Manutenzione € 600/anno
-                            </Text>
-                        </Box>
-                        <VStack
-                            bg={useColorModeValue('gray.50', 'gray.700')}
-                            py={4}
-                            borderBottomRadius={'xl'}>
-                            <List spacing={3} textAlign="start" px={12}>
-                                <ListItem>
-                                    <ListIcon as={FaCheckCircle} color="green.500" />
-                                    Pacchetto <b>Premium</b>
-                                </ListItem>
-                                <ListItem>
-                                    <ListIcon as={FaPlusCircle} color="green.500" />
-                                    <b>Supporto</b> prioritario
-                                </ListItem>
-                                <ListItem>
-                                    <ListIcon as={FaPlusCircle} color="green.500" />
-                                    Gestione di più <b>utenti</b> e <b>ruoli</b>
-                                </ListItem>
-                                <ListItem>
-                                    <ListIcon as={FaPlusCircle} color="green.500" />
-                                    <b>Firma</b> e gestione dei <b>documenti</b> per i clienti
-                                </ListItem>
-                            </List>
-                            <Box w="80%" pt={7}>
-                                <Link href="https://api.whatsapp.com/send?phone=393667748241&text=Ciao Francesco, sarei interessato al *pacchetto Business* della SPDevelopment" target="_blank">
-                                    <Button w="full" colorScheme="red">
-                                        Scrivici
-                                    </Button>
-                                </Link>
-                            </Box>
-                        </VStack>
-                    </Box>
+                <PriceWrapper title="Business" fakePrice="3.499" price="2.299" maintanance="600" isPopular>
+                    <ListItem>
+                        <ListIcon as={FaCheckCircle} color="green.500" />
+                        Pacchetto <b>Premium</b>
+                    </ListItem>
+                    <ListItem>
+                        <ListIcon as={FaPlusCircle} color="green.500" />
+                        <b>Supporto</b> prioritario
+                    </ListItem>
+                    <ListItem>
+                        <ListIcon as={FaPlusCircle} color="green.500" />
+                        Gestione di più <b>utenti</b> e <b>ruoli</b>
+                    </ListItem>
+                    <ListItem>
+                        <ListIcon as={FaPlusCircle} color="green.500" />
+                        <b>Firma</b> e gestione dei <b>documenti</b> per i clienti
+                    </ListItem>
                 </PriceWrapper>
-                <PriceWrapper>
-                    <Box py={4} px={12}>
-                        <Text fontWeight="500" fontSize="2xl">
-                            Premium
-                        </Text>
-                        <HStack justifyContent="center">
-                            <Text fontSize="3xl" fontWeight="600">
-                                €
-                            </Text>
-                            <Text fontSize="5xl" fontWeight="900">
-                                1.999
-                            </Text>
-                            <Text fontSize="3xl" color="gray.500">
-                                + IVA
-                            </Text>
-                        </HStack>
-                        <Text fontSize="md" mt="-2" color="gray.500">
-                            Manutenzione € 550/anno
-                        </Text>
-                    </Box>
-                    <VStack
-                        bg={useColorModeValue('gray.50', 'gray.700')}
-                        py={4}
-                        borderBottomRadius={'xl'}>
-                        <List spacing={3} textAlign="start" px={12}>
-                            <ListItem>
-                                <ListIcon as={FaCheckCircle} color="green.500" />
-                                Pacchetto <b>Basic</b>
-                            </ListItem>
-                            <ListItem>
-                                <ListIcon as={FaPlusCircle} color="green.500" />
-                                Dominio <b>e-mail</b> personalizzato
-                            </ListItem>
-                            <ListItem>
-                                <ListIcon as={FaPlusCircle} color="green.500" />
-                                Notifiche via e-mail ai clienti con<br/><b>filtri di ricerca</b> personalizzati
-                            </ListItem>
-                        </List>
-                        <Box w="80%" pt={7}>
-                            <Link href="https://api.whatsapp.com/send?phone=393667748241&text=Ciao Francesco, sarei interessato al *pacchetto Premium* della SPDevelopment" target="_blank">
-                                <Button w="full" colorScheme="red" variant="outline">
-                                    Scrivici
-                                </Button>
-                            </Link>
-                        </Box>
-                    </VStack>
+
+                <PriceWrapper title="Premium" fakePrice="3.999" price="1.999" maintanance="550">
+                    <ListItem>
+                        <ListIcon as={FaCheckCircle} color="green.500" />
+                        Pacchetto <b>Basic</b>
+                    </ListItem>
+                    <ListItem>
+                        <ListIcon as={FaPlusCircle} color="green.500" />
+                        Dominio <b>e-mail</b> personalizzato
+                    </ListItem>
+                    <ListItem>
+                        <ListIcon as={FaPlusCircle} color="green.500" />
+                        Notifiche via e-mail ai clienti con<br/><b>filtri di ricerca</b> personalizzati
+                    </ListItem>
                 </PriceWrapper>
+            </Stack>
+
+            <Stack direction={["column", "row"]} justifySelf="center" alignItems="center" px="10" pb="5">
+                <Text fontSize={["sm", "ms", "lg"]} color="gray.500">
+                    * la promozione finisce in
+                </Text>
+                { showCountdown && <Countdown date={targetDate} renderer={renderer}/> }
             </Stack>
         </Box>
     )

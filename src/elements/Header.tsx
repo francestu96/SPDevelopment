@@ -26,7 +26,7 @@ const Header = () => {
                 </HStack>
                 <HStack gap={'15px'} alignItems="center">
                     {NAV_LINKS.map((link) => (
-                        <NavItem key={`link-${link.label}`} onToggle={onToggle} {...link} />
+                        <NavItem key={`link-${link.label}`} {...link} />
                     ))}
                     <Link target='_blank' href="https://realestateagency-demo.vercel.app/">
                         <Button rounded={"full"} bg={"main"} color={"white"} _hover={{ bg: "gray.200" }}>

@@ -86,7 +86,7 @@ export default function TierPricing() {
 
     const renderer = ({ days, hours, minutes, seconds }: any) => {
         return (
-            <HStack color="red.500">
+            <HStack color="white">
                 <VStack gap="0">
                     <Text fontWeight="bold" fontSize={["md", "lg", "xl"]}>{String(days).padStart(2, '0')}</Text>
                     <Text fontSize={["xs", "sm"]} mt="-1">Giorni</Text>
@@ -168,8 +168,8 @@ export default function TierPricing() {
                 </PriceWrapper>
             </Stack>
 
-            <Stack direction={["column", "row"]} justifySelf="center" alignItems="center" px="10" pb="5">
-                <Text fontSize={["sm", "ms", "lg"]} color="gray.500">
+            <Stack direction={["column", "row"]} justifyContent="center" w="100vw" justifyItems="center" alignItems="center" px="10" py="3" backgroundColor="red.500" gap={[0, 2]}>
+                <Text fontSize={["sm", "ms", "lg"]} fontWeight="bold">
                     * la promozione finisce in
                 </Text>
                 { showCountdown && <Countdown date={targetDate} renderer={renderer}/> }

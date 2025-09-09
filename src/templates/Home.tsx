@@ -12,10 +12,10 @@ const Home: FC = () => {
     <VStack gap="0">
       <Hero/>
       <TierPricing/>
-      <About/>
       <Numbers/>
-      <Faq/>
       <Testimonials/>
+      <About/>
+      <Faq/>
     </VStack>
   );
 };

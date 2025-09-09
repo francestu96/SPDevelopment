@@ -108,13 +108,21 @@ export default function TierPricing() {
     }, []);
     
     return (
-        <Box pt={["5","10", "12"]}  id='pricing'>
-            <VStack spacing={2} textAlign="center" px="10" >
+        <Box pt={["2","10", "12"]}  id='pricing'>
+            <VStack spacing={2} textAlign="center" px="10" display={["none", "none", "unset"]}>
                 <Text fontSize="4xl" fontFamily="CustomFont" backgroundImage={'linear-gradient(to right, #9945FF, #14F195)'} backgroundClip="text" fill="transparent">
                     Pacchetti per ogni esigenza
                 </Text>
                 <Text fontSize="lg" color={'gray.500'}>
                     Ogni pacchetto può essere personalizzato in base alle specifiche esigenze
+                </Text>
+            </VStack>
+            <VStack textAlign="center" px="10" display={["unset", "unset", "none"]} paddingInline="0" marginBlock="0">
+                <Text fontSize="3xl" fontFamily="CustomFont" backgroundImage={'linear-gradient(to right, #9945FF, #14F195)'} backgroundClip="text" fill="transparent">
+                    Soluzioni su misura
+                </Text>
+                <Text fontSize="lg" color={'gray.500'}>
+                    Servizi personalizzati per ogni esigenza
                 </Text>
             </VStack>
             <Stack direction={{ base: 'column', md: 'row' }} textAlign="center" justify="center" spacing={{ base: 4, lg: 10 }} py={[5, 7, 10]} px={{ base: 10, md: 5, lg: 2 }}>

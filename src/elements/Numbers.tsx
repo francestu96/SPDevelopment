@@ -13,7 +13,7 @@ const Numbers = () => {
     
     return (
         <VStack width="100%" gap="0" borderTopWidth="thin" borderBottomWidth="thin">
-            <Center id="numbers" py="20" width="full">
+            <Center id="numbers" py={["5","10", "12", "20"]} width="full">
                 <VStack gap="10" fontSize="2xl" width={["90%", "80%", "70%"]}>
                     <Text fontSize="4xl" fontFamily="CustomFont" px="10" backgroundImage={'linear-gradient(to right, #9945FF, #14F195)'} backgroundClip="text" fill="transparent">
                         I Nostri Numeri

@@ -47,7 +47,7 @@ const TestimonialAvatar = ({ src, name, title }: { src: string; name: string; ti
 export default function Testimonials() {
   return (
     <Box>
-      <Container maxW={'7xl'} py={16} as={Stack} spacing={12}>
+      <Container maxW={'7xl'} py={["5","10", "12", "20"]} as={Stack} spacing={12}>
         <Stack spacing={0} align="center" textAlign="center">
             <Text fontSize="4xl" fontFamily="CustomFont" px="10" backgroundImage={'linear-gradient(to right, #9945FF, #14F195)'} backgroundClip="text" fill="transparent">
                 Cosa dicono di Noi

@@ -4,7 +4,7 @@ import { Text } from '@chakra-ui/react'
 const Faq = () => {
   return (
     <VStack id="faq" backgroundImage="abstract.png" backgroundSize="cover" backgroundPosition="center" width="100%" gap="0" borderTopWidth="thin" borderBottomWidth="thin">
-      <Center py="20" backgroundPosition="center" backgroundSize="cover" width="full">
+      <Center py={["5","10", "12", "20"]} backgroundPosition="center" backgroundSize="cover" width="full">
         <VStack gap="10" fontSize={{ base: 'sm', md: 'md', lg: 'lg' }} width={["90%", "80%", "70%"]}>
           <Text textAlign="center" fontSize="4xl" fontFamily="CustomFont" px="10" backgroundImage={'linear-gradient(to right, #9945FF, #14F195)'} backgroundClip="text" fill="transparent">
             Domande Frequenti

@@ -13,7 +13,7 @@ const About = () => {
 
     return (
         <VStack id="about" width="100%" gap="0" borderTopWidth="thin" borderBottomWidth="thin" backgroundImage="abstract.png" backgroundSize="cover" backgroundPosition="center" backdropInvert="">
-            <Center py="20" width="full">
+            <Center py={["5","10", "12", "20"]} width="full">
                 <VStack gap="10" width={["90%"]}>
                     <Text fontSize="4xl" fontFamily="CustomFont" px="10" backgroundImage={'linear-gradient(to right, #9945FF, #14F195)'} backgroundClip="text" fill="transparent">
                         Chi Siamo

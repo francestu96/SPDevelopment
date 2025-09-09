@@ -108,7 +108,7 @@ export default function TierPricing() {
     }, []);
     
     return (
-        <Box pt="12"  id='pricing'>
+        <Box pt={["5","10", "12"]}  id='pricing'>
             <VStack spacing={2} textAlign="center" px="10" >
                 <Text fontSize="4xl" fontFamily="CustomFont" backgroundImage={'linear-gradient(to right, #9945FF, #14F195)'} backgroundClip="text" fill="transparent">
                     Pacchetti per ogni esigenza
@@ -133,7 +133,22 @@ export default function TierPricing() {
                     </ListItem>
                 </PriceWrapper>
 
-                <PriceWrapper title="Business" fakePrice="3.499" price="2.299" maintanance="600" isPopular>
+                <PriceWrapper title="Premium" fakePrice="3.999" price="1.999" maintanance="550" isPopular>
+                    <ListItem>
+                        <ListIcon as={FaCheckCircle} color="green.500" />
+                        Pacchetto <b>Basic</b>
+                    </ListItem>
+                    <ListItem>
+                        <ListIcon as={FaPlusCircle} color="green.500" />
+                        Dominio <b>e-mail</b> personalizzato
+                    </ListItem>
+                    <ListItem>
+                        <ListIcon as={FaPlusCircle} color="green.500" />
+                        Notifiche via e-mail ai clienti con<br/><b>filtri di ricerca</b> personalizzati
+                    </ListItem>
+                </PriceWrapper>
+
+                <PriceWrapper title="Business" fakePrice="3.499" price="2.299" maintanance="600">
                     <ListItem>
                         <ListIcon as={FaCheckCircle} color="green.500" />
                         Pacchetto <b>Premium</b>
@@ -149,21 +164,6 @@ export default function TierPricing() {
                     <ListItem>
                         <ListIcon as={FaPlusCircle} color="green.500" />
                         <b>Firma</b> e gestione dei <b>documenti</b> per i clienti
-                    </ListItem>
-                </PriceWrapper>
-
-                <PriceWrapper title="Premium" fakePrice="3.999" price="1.999" maintanance="550">
-                    <ListItem>
-                        <ListIcon as={FaCheckCircle} color="green.500" />
-                        Pacchetto <b>Basic</b>
-                    </ListItem>
-                    <ListItem>
-                        <ListIcon as={FaPlusCircle} color="green.500" />
-                        Dominio <b>e-mail</b> personalizzato
-                    </ListItem>
-                    <ListItem>
-                        <ListIcon as={FaPlusCircle} color="green.500" />
-                        Notifiche via e-mail ai clienti con<br/><b>filtri di ricerca</b> personalizzati
                     </ListItem>
                 </PriceWrapper>
             </Stack>

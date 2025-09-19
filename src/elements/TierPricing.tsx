@@ -64,7 +64,7 @@ function PriceWrapper({ title, fakePrice, price, maintanance, isPopular, childre
                     {children}
                 </List>
                 <Box w="80%" pt={7}>
-                    <Link href="https://api.whatsapp.com/send?phone=393667748241&text=Ciao Francesco, sarei interessato al *pacchetto Basic* della SPDevelopment" target="_blank">
+                    <Link href={`https://api.whatsapp.com/send?phone=393667748241&text=Ciao Francesco, sarei interessato al *pacchetto ${title}* della SPDevelopment`} target="_blank">
                         <Button w="full" colorScheme="red" variant={isPopular ? "solid" : "outline"}>
                             Scrivici
                         </Button>

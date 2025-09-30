@@ -108,7 +108,7 @@ export default function TierPricing() {
     }, []);
     
     return (
-        <Box pt={["0","10", "12"]}  id='pricing'>
+        <Box pt={["5","10", "12"]}  id='pricing'>
             <VStack spacing={2} textAlign="center" px="10" display={["none", "none", "unset"]}>
                 <Text fontSize="4xl" fontFamily="CustomFont" backgroundImage={'linear-gradient(to right, #9945FF, #14F195)'} backgroundClip="text" fill="transparent">
                     Pacchetti per ogni esigenza

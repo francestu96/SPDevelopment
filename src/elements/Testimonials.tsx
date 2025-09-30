@@ -5,8 +5,8 @@ import { Heading, Text, Stack, Container, Avatar, Card, Image, HStack, CardBody 
 
 export default function Testimonials() {
     return (
-        <Container maxW={'7xl'} py={["0", "10", "12", "20"]} px="10" gap="5">
-            <Card my="5" display={["flex", "flex", "none"]} boxShadow="xl" borderRadius="xl">
+        <Container maxW={'7xl'} py={["5", "10", "12", "20"]} px="10" gap="5">
+            <Card mt="5" mb="10" display={["flex", "flex", "none"]} boxShadow="xl" borderRadius="xl">
                 <CardBody  bgColor="gray.100" borderRadius="xl">
                     <Stack gap="2" alignItems="center" fontWeight="bold" color="black">
                         <Text fontSize={["xs", "sm"]}>Con Noi</Text>

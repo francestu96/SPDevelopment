@@ -14,8 +14,8 @@ export default function HowWeWork() {
                     Come Lavoriamo
                 </Text>
             </VStack>
-            <Box width={["90%", "80%", "70%"]} mx="auto" textAlign="center">
-                <Swiper style={{ paddingBottom: "20px" }} modules={[Autoplay, Scrollbar]} spaceBetween={30} slidesPerView={1} scrollbar={{ draggable: true }} autoplay={{ delay: 4000 }} breakpoints={{ 768: { slidesPerView: 2 }, 1024: { slidesPerView: 3 } }}>
+            <Box width={["90%", "80%", "70%"]} mx="auto" textAlign="center" mb="5" mt="7">
+                <Swiper style={{ paddingBottom: "30px" }} modules={[Autoplay, Scrollbar]} spaceBetween={30} slidesPerView={1} scrollbar={{ draggable: true }} autoplay={{ delay: 4000 }} breakpoints={{ 768: { slidesPerView: 2 }, 1024: { slidesPerView: 3 } }}>
                     <SwiperSlide>
                         <Card boxShadow="xl" borderRadius="xl" mx="5">
                             <CardBody>

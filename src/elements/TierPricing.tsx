@@ -108,7 +108,7 @@ export default function TierPricing() {
     }, []);
     
     return (
-        <Box pt={["2","10", "12"]}  id='pricing'>
+        <Box pt={["0","10", "12"]}  id='pricing'>
             <VStack spacing={2} textAlign="center" px="10" display={["none", "none", "unset"]}>
                 <Text fontSize="4xl" fontFamily="CustomFont" backgroundImage={'linear-gradient(to right, #9945FF, #14F195)'} backgroundClip="text" fill="transparent">
                     Pacchetti per ogni esigenza
@@ -118,10 +118,10 @@ export default function TierPricing() {
                 </Text>
             </VStack>
             <VStack textAlign="center" px="10" display={["unset", "unset", "none"]} paddingInline="0" marginBlock="0">
-                <Text fontSize="3xl" fontFamily="CustomFont" backgroundImage={'linear-gradient(to right, #9945FF, #14F195)'} backgroundClip="text" fill="transparent">
+                <Text fontSize={["2xl", "3xl"]} fontFamily="CustomFont" backgroundImage={'linear-gradient(to right, #9945FF, #14F195)'} backgroundClip="text" fill="transparent">
                     Soluzioni su misura
                 </Text>
-                <Text fontSize="lg" color={'gray.500'}>
+                <Text fontSize={["md", "lg"]} color={'gray.500'}>
                     Servizi personalizzati per ogni esigenza
                 </Text>
             </VStack>

@@ -66,6 +66,10 @@ html {
     z-index: -1;
 }
 
+.swiper-scrollbar-drag {
+  background: #588fd1;
+}
+
 @keyframes animated-div {
     from {
         opacity: 0;

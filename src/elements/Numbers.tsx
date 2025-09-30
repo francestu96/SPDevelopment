@@ -15,14 +15,14 @@ const Numbers = () => {
         <VStack width="100%" gap="0" borderTopWidth="thin" borderBottomWidth="thin">
             <Center id="numbers" py={["5","10", "12", "20"]} width="full">
                 <VStack gap="10" fontSize="2xl" width={["90%", "80%", "70%"]}>
-                    <Text fontSize="4xl" fontFamily="CustomFont" px="10" backgroundImage={'linear-gradient(to right, #9945FF, #14F195)'} backgroundClip="text" fill="transparent">
+                    <Text fontSize={["2xl", "3xl"]} fontFamily="CustomFont" px="10" backgroundImage={'linear-gradient(to right, #9945FF, #14F195)'} backgroundClip="text" fill="transparent">
                         I Nostri Numeri
                     </Text>
                     <Stack ref={ref} direction={["column", "row"]} alignItems="center" gap="20" >
                         <SimpleGrid columns={2} textAlign="center">
                             <ChakraBox borderBottom="1px solid #3bb7ff" borderRight="1px solid #3bb7ff" animate={isInView ? { translateX: [-200, 0], opacity: [0, 1] } : 'none'} transition={{ duration: "1.5", ease: "easeInOut", delay: "0.5" }} opacity="0">
                                 <VStack pr={["5", "10"]} pb={["5", "10"]}>
-                                    <Text color="main" fontSize={["2xl", "4xl"]}><CountUp useEasing={false} end={4} duration={5}/></Text>
+                                    <Text color="main" fontSize={["2xl", "4xl"]}><CountUp useEasing={false} end={14} duration={5}/></Text>
                                     <Text color="gray.500" fontWeight="bold" fontSize="lg" fontFamily="CustomFont">Clienti soddisfatti</Text>
                                 </VStack>
                             </ChakraBox>
@@ -40,7 +40,7 @@ const Numbers = () => {
                             </ChakraBox>
                             <ChakraBox animate={isInView ? { translateX: [-200, 0], opacity: [0, 1] } : 'none'} transition={{ duration: "1.5", ease: "easeInOut", delay: "0.8" }} opacity="0">
                                 <VStack pl={["5", "10"]} pt={["5", "10"]}>
-                                    <Text color="main" fontSize={["2xl", "4xl"]}><CountUp useEasing={false} end={3} duration={5}/></Text>
+                                    <Text color="main" fontSize={["2xl", "4xl"]}><CountUp useEasing={false} end={2} duration={2}/></Text>
                                     <Text color="gray.500" fontWeight="bold" fontSize="lg" fontFamily="CustomFont">Anni di attivit<Text as="span" fontFamily="arial">à</Text></Text>
                                 </VStack>
                             </ChakraBox>

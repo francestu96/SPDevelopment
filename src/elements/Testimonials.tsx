@@ -1,92 +1,64 @@
 
-import { ReactNode } from 'react';
-import { Box, Flex, Heading, Text, Stack, Container, Avatar } from '@chakra-ui/react';
-
-const Testimonial = ({ children }: { children: ReactNode }) => {
-  return <Box flex="1">{children}</Box>;
-};
-
-const TestimonialContent = ({ children }: { children: ReactNode }) => {
-  return (
-    <Stack bg="gray.100" boxShadow={'lg'} p={8} rounded={'xl'} align={'center'} pos={'relative'} _after={{ content: `""`, w: 0, h: 0, borderLeft: 'solid transparent', borderLeftWidth: 16, borderRight: 'solid transparent', borderRightWidth: 16, borderTop: 'solid', borderTopWidth: 16, pos: 'absolute', bottom: '-16px', left: '50%', transform: 'translateX(-50%)' }}>
-      {children}
-    </Stack>
-  );
-};
-
-const TestimonialHeading = ({ children }: { children: ReactNode }) => {
-  return (
-    <Heading as={'h3'} fontSize={'xl'}>
-      {children}
-    </Heading>
-  );
-};
-
-const TestimonialText = ({ children }: { children: ReactNode }) => {
-  return (
-    <Text textAlign={'center'} color="gray.600" fontSize={'sm'}>
-      {children}
-    </Text>
-  );
-};
-
-const TestimonialAvatar = ({ src, name, title }: { src: string; name: string; title: string}) => {
-  return (
-    <Flex align={'center'} mt={8} direction={'column'}>
-      <Avatar src={src} mb={2} />
-      <Stack spacing={-1} align={'center'}>
-        <Text fontWeight={600}>{name}</Text>
-        <Text fontSize={'sm'} color="gray.600">
-          {title}
-        </Text>
-      </Stack>
-    </Flex>
-  );
-};
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Autoplay, Pagination } from 'swiper/modules';
+import { Heading, Text, Stack, Container, Avatar, Card, Image, HStack, CardBody } from '@chakra-ui/react';
 
 export default function Testimonials() {
-  return (
-    <Box>
-      <Container maxW={'7xl'} py={["5","10", "12", "20"]} as={Stack} spacing={12}>
-        <Stack spacing={0} align="center" textAlign="center">
-            <Text fontSize="4xl" fontFamily="CustomFont" px="10" backgroundImage={'linear-gradient(to right, #9945FF, #14F195)'} backgroundClip="text" fill="transparent">
-                Cosa dicono di Noi
-            </Text>
-          <Text>Scopri cosa dicono i nostri clienti della loro esperienza con noi!</Text>
-        </Stack>
-        <Stack direction={{ base: 'column', md: 'row' }} spacing={{ base: 10, md: 4, lg: 10 }}>
-          <Testimonial>
-            <TestimonialContent>
-              <TestimonialHeading>Servizio Impeccabile!</TestimonialHeading>
-              <TestimonialText>
-                S&P Development ha capito fin da subito cosa ci serviva. Il sito è intuitivo, moderno e facilissimo da aggiornare.
-                In pochi giorni abbiamo iniziato a ricevere più contatti direttamente dal web.
-              </TestimonialText>
-            </TestimonialContent>
-            <TestimonialAvatar src={"/alessio_rossi.jpg"} name={'Alessio'} title={'Catania'} />
-          </Testimonial>
-          <Testimonial>
-            <TestimonialContent>
-              <TestimonialHeading>Professionisti Affidabili</TestimonialHeading>
-              <TestimonialText>
-                Francesco ha fatto un ottimo lavoro lato tecnico e Paolo ci ha guidati in ogni fase con grande chiarezza.
-                Non avevamo mai pensato che un sito potesse semplificare così tanto la gestione degli immobili.
-              </TestimonialText>
-            </TestimonialContent>
-            <TestimonialAvatar src={"/giorgia_levi.jpg"} name={'Giorgia'} title={'Genova'} />
-          </Testimonial>
-          <Testimonial>
-            <TestimonialContent>
-              <TestimonialHeading>Risultati Eccezionali</TestimonialHeading>
-              <TestimonialText>
-                Grazie al nuovo sito abbiamo visto un aumento concreto di richieste da parte di potenziali acquirenti.
-                Il team di S&P Development ci ha seguiti con professionalità anche dopo il lancio, rendendo tutto semplice e senza stress.
-              </TestimonialText>
-            </TestimonialContent>
-            <TestimonialAvatar src={"/luca_grasso.jpg"} name={'Luca'} title={'Perugia'} />
-          </Testimonial>
-        </Stack>
-      </Container>
-    </Box>
-  );
+    return (
+        <Container maxW={'7xl'} py={["0", "10", "12", "20"]} px="10" gap="5">
+            <Card my="5" display={["flex", "flex", "none"]} boxShadow="xl" borderRadius="xl">
+                <CardBody  bgColor="gray.100" borderRadius="xl">
+                    <Stack gap="2" alignItems="center" fontWeight="bold" color="black">
+                        <Text fontSize={["xs", "sm"]}>Con Noi</Text>
+                        <HStack w="100%" justifyContent="space-around">
+                            <Image src="/demo.ico" alt="demo" boxSize="50px"/>
+                            <Image src="/casasavino.ico" alt="casasavino" boxSize="50px"/>
+                            <Image src="/chat.png" alt="chat" boxSize="50px"/>
+                        </HStack>
+                        <Text fontSize="xl">+30% richieste in 90 giorni</Text>
+                    </Stack>
+                </CardBody>
+            </Card>
+            <Swiper style={{ paddingBottom: "30px" }} modules={[Autoplay, Pagination]} spaceBetween={30} slidesPerView={1} pagination={{ clickable: true }} autoplay={{ delay: 40000 }} loop breakpoints={{ 768: { slidesPerView: 2 }, 1024: { slidesPerView: 3 } }}>
+                <SwiperSlide>
+                    <Stack bgColor="gray.100" borderRadius="xl" p="5" gap="2">
+                        <HStack w="100%" gap="5">
+                            <Avatar src={"/alessio_rossi.jpg"} />
+                            <Heading as={'h3'} fontSize={["sm", "md", "lg", "lg", "lg", "xl"]}>Servizio Impeccabile!</Heading>
+                        </HStack>
+                        <Text textAlign="center">
+                            S&P Development ha capito fin da subito cosa ci serviva. Il sito è intuitivo, moderno e facilissimo da aggiornare.
+                            In pochi giorni abbiamo iniziato a ricevere più contatti direttamente dal web.
+                        </Text>
+                    </Stack>
+                </SwiperSlide>
+                
+                <SwiperSlide>
+                    <Stack bgColor="gray.100" borderRadius="xl" p="5" gap="2">
+                        <HStack w="100%" gap="5">
+                            <Avatar src={"/giorgia_levi.jpg"} />
+                            <Heading as={'h3'} fontSize={["sm", "md", "lg", "lg", "lg", "xl"]}>Professionisti Affidabili</Heading>
+                        </HStack>
+                        <Text textAlign="center">
+                            Francesco ha fatto un ottimo lavoro lato tecnico e Paolo ci ha guidati in ogni fase con grande chiarezza.
+                            Non avevamo mai pensato che un sito potesse semplificare così tanto la gestione degli immobili.
+                        </Text>
+                    </Stack>
+                </SwiperSlide>
+                
+                <SwiperSlide>
+                    <Stack bgColor="gray.100" borderRadius="xl" p="5" gap="2">
+                        <HStack w="100%" gap="5">
+                            <Avatar src={"/luca_grasso.jpg"} />
+                            <Heading as={'h3'} fontSize={["sm", "md", "lg", "lg", "lg", "xl"]}>Risultati Eccezionali</Heading>
+                        </HStack>
+                        <Text textAlign="center">
+                            Grazie al nuovo sito abbiamo visto un aumento concreto di richieste da parte di potenziali acquirenti.
+                            Il team di S&P Development ci ha seguiti con professionalità anche dopo il lancio, rendendo tutto semplice e senza stress.
+                        </Text>
+                    </Stack>
+                </SwiperSlide>
+            </Swiper>
+        </Container>
+    );
 }

@@ -6,14 +6,16 @@ import About from 'elements/About';
 import Numbers from 'elements/Numbers';
 import Faq from 'elements/Faq';
 import TierPricing from 'elements/TierPricing';
+import HowWeWork from 'elements/HowWeWork';
 
 const Home: FC = () => {
   return (
-    <VStack gap="0">
+    <VStack gap="0" fontSize={["xs", "sm", "md", "lg", "md", "lg"]}>
       <Hero/>
+      <Testimonials/>
+      <HowWeWork/>
       <TierPricing/>
       <Numbers/>
-      <Testimonials/>
       <About/>
       <Faq/>
     </VStack>

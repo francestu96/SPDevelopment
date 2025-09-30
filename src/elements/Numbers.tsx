@@ -29,12 +29,12 @@ const Numbers = () => {
                             <ChakraBox borderBottom="1px solid #3bb7ff" animate={isInView ? { translateX: [-200, 0], opacity: [0, 1] } : 'none'} transition={{ duration: "1.5", ease: "easeInOut" }} opacity="0">
                                 <VStack pl={["5", "10"]} pb={["5", "10"]}>
                                     <Text color="main" fontSize={["2xl", "4xl"]}>+<CountUp useEasing={false} end={30} duration={5}/>%</Text>
-                                    <Text color="gray.500" fontWeight="bold" fontSize="lg" fontFamily="CustomFont">Vendite nei primi 90 giorni</Text>
+                                    <Text color="gray.500" fontWeight="bold" fontSize="lg" fontFamily="CustomFont">Vendite nei primi <Text as={"span"}>90</Text> giorni</Text>
                                 </VStack>
                             </ChakraBox>
                             <ChakraBox animate={isInView ? { translateX: [-200, 0], opacity: [0, 1] } : 'none'} transition={{ duration: "1.5", ease: "easeInOut", delay: "0.6"}} opacity="0">
                                 <VStack borderRight="1px solid #3bb7ff" pr={["5", "10"]} pt={["5", "10"]}>
-                                    <Text color="main" fontSize={["2xl", "4xl"]}><CountUp useEasing={false} end={1.500} start={1000} duration={5}/>+</Text>
+                                    <Text color="main" fontSize={["2xl", "4xl"]}><CountUp useEasing={false} end={1500} start={1000} duration={5}/>+</Text>
                                     <Text color="gray.500" fontWeight="bold" fontSize="lg" fontFamily="CustomFont">Annunci pubblicati ogni mese</Text>
                                 </VStack>
                             </ChakraBox>

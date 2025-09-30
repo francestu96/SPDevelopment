@@ -22,26 +22,26 @@ const Numbers = () => {
                         <SimpleGrid columns={2} textAlign="center">
                             <ChakraBox borderBottom="1px solid #3bb7ff" borderRight="1px solid #3bb7ff" animate={isInView ? { translateX: [-200, 0], opacity: [0, 1] } : 'none'} transition={{ duration: "1.5", ease: "easeInOut", delay: "0.5" }} opacity="0">
                                 <VStack pr={["5", "10"]} pb={["5", "10"]}>
-                                    <Text color="main" fontSize={["2xl", "4xl"]}><CountUp useEasing={false} end={14} duration={5}/></Text>
+                                    <Text color="main" fontSize={["2xl", "4xl"]}><CountUp useEasing={false} end={100} duration={5}/>%</Text>
                                     <Text color="gray.500" fontWeight="bold" fontSize="lg" fontFamily="CustomFont">Clienti soddisfatti</Text>
                                 </VStack>
                             </ChakraBox>
                             <ChakraBox borderBottom="1px solid #3bb7ff" animate={isInView ? { translateX: [-200, 0], opacity: [0, 1] } : 'none'} transition={{ duration: "1.5", ease: "easeInOut" }} opacity="0">
                                 <VStack pl={["5", "10"]} pb={["5", "10"]}>
-                                    <Text color="main" fontSize={["2xl", "4xl"]}><CountUp useEasing={false} end={700} start={500} duration={5}/>+</Text>
-                                    <Text color="gray.500" fontWeight="bold" fontSize="lg" fontFamily="CustomFont">Visite settimanli acquirenti</Text>
+                                    <Text color="main" fontSize={["2xl", "4xl"]}>+<CountUp useEasing={false} end={30} duration={5}/>%</Text>
+                                    <Text color="gray.500" fontWeight="bold" fontSize="lg" fontFamily="CustomFont">Vendite nei primi 90 giorni</Text>
                                 </VStack>
                             </ChakraBox>
                             <ChakraBox animate={isInView ? { translateX: [-200, 0], opacity: [0, 1] } : 'none'} transition={{ duration: "1.5", ease: "easeInOut", delay: "0.6"}} opacity="0">
                                 <VStack borderRight="1px solid #3bb7ff" pr={["5", "10"]} pt={["5", "10"]}>
-                                    <Text color="main" fontSize={["2xl", "4xl"]}><CountUp useEasing={false} end={1000} start={900} duration={5}/>+</Text>
-                                    <Text color="gray.500" fontWeight="bold" fontSize="lg" fontFamily="CustomFont">Ore risparmiate dai clienti</Text>
+                                    <Text color="main" fontSize={["2xl", "4xl"]}><CountUp useEasing={false} end={1.500} start={1000} duration={5}/>+</Text>
+                                    <Text color="gray.500" fontWeight="bold" fontSize="lg" fontFamily="CustomFont">Annunci pubblicati ogni mese</Text>
                                 </VStack>
                             </ChakraBox>
                             <ChakraBox animate={isInView ? { translateX: [-200, 0], opacity: [0, 1] } : 'none'} transition={{ duration: "1.5", ease: "easeInOut", delay: "0.8" }} opacity="0">
                                 <VStack pl={["5", "10"]} pt={["5", "10"]}>
-                                    <Text color="main" fontSize={["2xl", "4xl"]}><CountUp useEasing={false} end={2} duration={2}/></Text>
-                                    <Text color="gray.500" fontWeight="bold" fontSize="lg" fontFamily="CustomFont">Anni di attivit<Text as="span" fontFamily="arial">à</Text></Text>
+                                    <Text color="main" fontSize={["2xl", "4xl"]}><CountUp useEasing={false} end={100} duration={5}/>%</Text>
+                                    <Text color="gray.500" fontWeight="bold" fontSize="lg" fontFamily="CustomFont">Clienti soddisfatti</Text>
                                 </VStack>
                             </ChakraBox>
                         </SimpleGrid>

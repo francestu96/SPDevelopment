@@ -10,7 +10,7 @@ export default function HowWeWork() {
     return (
         <Box py={["5","10", "12"]} w="100%" alignItems="center" borderBottom="1px" borderTop="1px" borderColor="chakra-border-color" backgroundImage="abstract.png" backgroundSize="cover" backgroundPosition="right">
             <VStack mb="5" spacing={2} textAlign="center" px="10">
-                <Text fontSize={["2xl", "3xl"]} fontFamily="CustomFont" backgroundImage={'linear-gradient(to right, #9945FF, #14F195)'} backgroundClip="text" fill="transparent">
+                <Text fontSize={["2xl", "3xl", "4xl"]} fontFamily="CustomFont" backgroundImage={'linear-gradient(to right, #9945FF, #14F195)'} backgroundClip="text" fill="transparent">
                     Come Lavoriamo
                 </Text>
             </VStack>
@@ -19,9 +19,9 @@ export default function HowWeWork() {
                     <SwiperSlide>
                         <Card boxShadow="xl" borderRadius="xl" mx="5">
                             <CardBody>
-                                <VStack gap="0">
+                                <VStack gap="0" fontSize={["md", "lg", "xl"]}>
                                     <FaMagnifyingGlass size="30px"/>
-                                    <Text fontSize="md" fontWeight="bold" mt="5">Analisi gratuita</Text>
+                                    <Text fontWeight="bold" mt="5">Analisi gratuita</Text>
                                     <Text>Richiedi la tua analisi gratuita e scopri subito punti di forza e aree di miglioramento</Text>
                                 </VStack>
                             </CardBody>
@@ -31,9 +31,9 @@ export default function HowWeWork() {
                     <SwiperSlide>
                         <Card boxShadow="xl" borderRadius="xl" mx="5">
                             <CardBody>
-                                <VStack gap="0">
+                                <VStack gap="0" fontSize={["md", "lg", "xl"]}>
                                     <LuMonitorCheck size="30px"/>
-                                    <Text fontSize="md" fontWeight="bold" mt="2">Sito su misura</Text>
+                                    <Text fontWeight="bold" mt="2">Sito su misura</Text>
                                     <Text>Realizziamo siti web personalizzati per la tua agenzia, pensati per valorizzare al massimo i tuoi immobili</Text>
                                 </VStack>
                             </CardBody>
@@ -43,9 +43,9 @@ export default function HowWeWork() {
                     <SwiperSlide>
                         <Card boxShadow="xl" borderRadius="xl" mx="5">
                             <CardBody>
-                                <VStack gap="0">
+                                <VStack gap="0" fontSize={["md", "lg", "xl"]}>
                                     <TiWorld size="30px"/>
-                                    <Text fontSize="md" fontWeight="bold" mt="2">Visibilità online</Text>
+                                    <Text fontWeight="bold" mt="2">Visibilità online</Text>
                                     <Text>Aumenta le tue opportunità di vendita con un sito ottimizzato per i motori di ricerca e facile da usare</Text>
                                 </VStack>
                             </CardBody>
